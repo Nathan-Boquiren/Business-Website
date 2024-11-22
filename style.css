@@ -1,0 +1,292 @@
+*, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 600;
+    overflow-x: hidden;
+    max-width: 100%;
+    color: rgb(241, 241, 241);
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+::selection {
+    background: var(--light-purple); /* Highlight background color */
+    color: #000; /* Highlight text color */
+}  
+:root {
+    --purple-accent-color: rgb(126, 0, 126);
+    --light-purple: rgb(255, 184, 255);
+}
+body {
+    background-color: white;
+    scroll-snap-type: y mandatory;
+}
+
+body > * {
+    scroll-snap-align: start;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    height: 100vh;
+    background-image: url(bg-image.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 50% 95%, 0% 90%); */
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    padding: 1em 2em;
+}
+
+nav ul li a {
+    display: block;
+    font-style: normal;
+    text-decoration: none;
+    transition: text-shadow 0.2s ease, transform 0.2s ease;
+}
+nav ul li a:hover {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.24);
+    transform: scale(1.03);
+}
+
+.logo {
+    width: clamp(100px, 2vw, 200px);
+    margin-right: auto;
+    mix-blend-mode: darken;
+}
+
+.hamburger {
+    margin: 2vh 4vw;
+    display: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    header {
+        clip-path: none;
+    }
+    nav {
+        position: fixed;
+        background-color: var(--purple-accent-color);
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.219);
+        justify-content: flex-start;
+        z-index: 100;
+        
+    }
+    nav ul {
+        position: fixed;
+        height: 100%;
+        width: 50vw;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        top: 0;
+        left: -60vw;
+        padding: 20px 10px;
+        background-color: var(--purple-accent-color);
+        transition: left 0.3s ease;
+        text-align: center;
+        border-radius: 0 20px 20px 0;
+        box-shadow: -3px 0px 10px rgba(0, 0, 0, 0.247);
+    }
+    nav ul li a:hover {
+        color: white;
+    }
+    .logo {
+        margin: auto;
+        width: 100px;
+    }
+    .hamburger {
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        overflow: visible;
+        background-color: var(--purple-accent-color);
+        padding: 10px;
+    }
+    .hamburger-line {
+        margin: 3px auto;
+        width: 30px;
+        height: 4px;
+        background-color: white;
+        border-radius: 3px;
+        transition: transform 0.2s ease, width 0.2s ease;
+    }
+
+}
+
+
+.tagline {
+    font-size: clamp(40px, 4vw, 100px);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 5vw;
+}
+
+.header-cta {
+    cursor: pointer;
+    outline: 3px solid var(--purple-accent-color);
+    border-radius: 8px;
+    margin: 10px;
+    padding: 1em 2em;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    a {
+        text-decoration: none;
+        font-size: clamp(16px, 3vw, 20px);
+        color: var(--purple-accent-color);
+        transition: color 0.2s ease;
+    }
+    
+}
+
+.header-cta:hover {
+    transform: scale(1.05);
+    background-color: var(--purple-accent-color);
+    a {
+        color: white;
+    }
+
+}
+
+
+.services {
+    background-color: var(--purple-accent-color);
+    clip-path: polygon(0% 0%, 50% 10%, 100% 0%, 100% 90%, 50% 100%, 0% 90%);
+    transform: translateY(-10%);
+    padding: 3vw 1vw 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.services h1 {
+    margin-top: 5%;
+    font-size: 2.5em;
+}
+.services hr {
+    border: none;
+    width: 80%;
+    background-color: white;
+    height: 3px;
+    border-radius: 2px;
+    margin-bottom: 8vh;
+}
+.services-container {
+    max-width: 80%;
+    width: clamp(300px, 80vw, 1440px);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    overflow: visible;
+    margin-bottom: 5%;
+}
+.service-item {
+    border-radius: 20px;
+    background-color: white;
+    padding: 20px;
+    flex: 0.5 1 400px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.253);
+    margin: 10px;
+    position: relative;
+    overflow: visible;
+    margin-bottom: 5vh;
+}
+
+.service-icon {
+    border-radius: 50%;
+    border: 5px solid var(--purple-accent-color);
+    width: 100px;
+    aspect-ratio: 1;
+    /* background-color: var(--purple-accent-color); */
+    background-color: var(--light-purple);
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.service-item > * {
+    color: var(--purple-accent-color);
+}
+.service-item h2 {
+    font-size: 1.8em;
+    margin-top: 30px;
+}
+.service-item p {
+    text-align: left;
+    text-wrap: pretty;
+    font-weight: 400;
+}
+
+
+@media (max-width: 1084px) {
+    .services {
+        clip-path: polygon(0% 0%, 50% 5%, 100% 0%, 100% 95%, 50% 100%, 0% 95%);
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .services {
+        clip-path: polygon(0% 0%, 50% 2%, 100% 0%, 100% 98%, 50% 100%, 0% 98%);
+    }
+}
+
+
+
+
+
+.about {
+    display: flex;
+    margin: 10px auto;
+    /* box-shadow: -10px -10px 0px 2px white, 10px 10px 0px 2px var(--light-purple); */
+    width: clamp(320px, 80vw, 2000px);
+    padding: 4vw;
+    h2 {
+        font-size: clamp(2em, 5vw, 4em);
+        color: var(--purple-accent-color);
+    }
+    p {
+
+        color: var(--purple-accent-color);
+        font-weight: 400;
+        align-self: center;
+    }
+}
+.about-text {
+    flex: 2;
+    align-self: flex-start;
+}
+.about-img {
+    flex: 1;
+    img {
+        height: 80vh;
+        transform: rotateY(180deg);
+    }
+}
